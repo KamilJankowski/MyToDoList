@@ -21,6 +21,7 @@ public class MyListController {
 		
 		List<MyList> list = mylistDAO.listMyList();
 		model.addAttribute("mylist", list);
+		
 		return "index";
 		
 	}

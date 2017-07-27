@@ -4,17 +4,18 @@
  <html>
   <head>
       <meta charset="UTF-8">
-      <title>My List to do</title>
+      <title>My  to do list</title>
+      <link rel="stylesheet" href="CSS/style.css" type="text/css">
   </head>
   <body>
       <div align="center">
-          <h1>My list to do</h1>
-          <form:form method ="POST" action = "/myListToDo/addtask" >
+          <h1>My to do list</h1>
+          <form:form method ="POST" action = "/MyToDoList/" >
           <table border="1">
               <tr>
                 <th>Subject</th>
                 <th>Description</th>
-                <th>Add</th>
+                <th>Action</th>
               </tr>
              
               <tr>

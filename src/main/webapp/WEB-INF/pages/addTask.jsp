@@ -4,7 +4,8 @@
  <html>
   <head>
       <meta charset="UTF-8">
-      <title>My List to do</title>
+       <title>My  to do list</title>
+      <link rel="stylesheet" href="CSS/style.css" type="text/css">
   </head>
   <body>
       <div align="center">
