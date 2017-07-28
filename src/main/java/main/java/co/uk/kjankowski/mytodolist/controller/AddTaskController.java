@@ -25,7 +25,7 @@ public class AddTaskController {
 		return new ModelAndView("task", "command", new MyList(null, null, null));
 	}
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/addTask"}, method = RequestMethod.POST)
 	public String addtask(@ModelAttribute("SpringWeb")MyList mylist, Model model){
 		model.addAttribute("subject", mylist.getSubject());
 		model.addAttribute("description", mylist.getDescription());
@@ -40,6 +40,6 @@ public class AddTaskController {
 		
 		mylistDAO.insertTask(readsubject, readdescription);
 		System.out.println(readdescription);
-		return "index";
+		return "addTask";
 	}
 }
