@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  
+ <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+  <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
  <!DOCTYPE html>
  <html>
   <head>
@@ -118,6 +119,7 @@ footer p {
 	<div class="wrapper">
       <div align="center">
           <h1>My list to do</h1>
+         <form:form action="/MyToDoList/" method="post" modelAttribute="listForm">
           <table border="1">
               <tr>
                 <th>ID</th>
@@ -135,6 +137,10 @@ footer p {
               </tr>
               </c:forEach>                
           </table>
+          
+          </form:form>
+         
+          
       </div>
       </div>
       <jsp:include page="_footer.jsp"></jsp:include>

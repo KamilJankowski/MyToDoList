@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
  
 @Controller
 public class MyListController {
@@ -29,29 +31,18 @@ public class MyListController {
 		
 	}
 	
-	@RequestMapping(value= {"/"}, method = RequestMethod.POST)
-	public void handlePost(@RequestParam String deleteBtnTask){
-	
-		if(deleteBtnTask.equals("10")) {
-			
-			System.out.println("Hello 10!!!!");
-		}
+	@RequestMapping( params="deleteBtnTask")
+	public void delete(@RequestParam("deleteBtnTask")  Integer deleteBtnTask) {
+		
+		System.out.println("wynik "+ deleteBtnTask);
+		
+		mylistDAO.deleteTask(deleteBtnTask);
 		
 		
-/*	String buttonDelMobiles = request.getParameter("delMobileBtn");
-
-	for (Mobiles idmob : mlist) {
-		if (idmob.getId().equals(buttonDelMobiles)) {
-
-			
-			String idMobiles1 = idmob.getId();
-
-			DBUtils.removeIdMobile(conn, idMobiles1);
-
-			doGet(request, response);
-		}
-
-	}*/
+		
+		
+		
+		
 	}
 	
 
