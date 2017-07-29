@@ -32,17 +32,16 @@ public class MyListController {
 	}
 	
 	@RequestMapping( params="deleteBtnTask")
-	public void delete(@RequestParam("deleteBtnTask")  Integer deleteBtnTask) {
+	public String delete(@RequestParam("deleteBtnTask")  Integer deleteBtnTask, Model model) {
+		
+		model.addAttribute("id", deleteBtnTask);
 		
 		System.out.println("wynik "+ deleteBtnTask);
 		
 		mylistDAO.deleteTask(deleteBtnTask);
 		
-		
-		
-		
-		
-		
+		return "delTask";
+				
 	}
 	
 

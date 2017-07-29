@@ -49,7 +49,7 @@ body {
 
 header {
 	height: 50px;
-	background-color: #ee7e02;
+	background-color: #3385ff;
 	display: block;
 	margin: 0;
 	width: 100%;
@@ -119,7 +119,7 @@ footer p {
 	<div class="wrapper">
       <div align="center">
           <h1>My list to do</h1>
-         <form:form action="/MyToDoList/" method="post" modelAttribute="listForm">
+         <form:form action="/MyToDoList/delTask" method="post" modelAttribute="listForm">
           <table border="1">
               <tr>
                 <th>ID</th>

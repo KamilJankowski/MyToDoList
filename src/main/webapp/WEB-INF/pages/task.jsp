@@ -52,7 +52,7 @@ body {
 
 header {
 	height: 50px;
-	background-color: #ee7e02;
+	background-color: #3385ff;
 	display: block;
 	margin: 0;
 	width: 100%;
@@ -115,7 +115,7 @@ footer p {
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<div class="wrapper">
 		<div align="center">
-			<h1>My to do list</h1>
+			<h2>Add task to my list</h2>
 			<form:form method="POST" action="/MyToDoList/addTask">
 				<table border="1">
 					<tr>

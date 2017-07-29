@@ -112,22 +112,9 @@ footer p {
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<div class="wrapper">
 		<div align="center">
-			<h2>Task added to my list</h2>
-			<table border="1">
-				<tr>
-
-					<th>Subject</th>
-					<th>Description</th>
-				</tr>
-
-				<tr>
-
-
-					<td>${subject}</td>
-					<td>${description}</td>
-				</tr>
-
-			</table>
+			<h2>Task id ${id} has been deleted</h2>
+			<h3><a href="/MyToDoList/">Go Back</a></h3>
+			
 		</div>
 	</div>
 	<jsp:include page="_footer.jsp"></jsp:include>
