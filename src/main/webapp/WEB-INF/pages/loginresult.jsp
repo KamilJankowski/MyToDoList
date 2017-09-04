@@ -1,7 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -115,25 +112,11 @@ footer p {
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<div class="wrapper">
 		<div align="center">
-			<h2>Add task to my list</h2>
-			<form:form method="POST" action="/MyToDoList/addTask">
-				<table border="1">
-					<tr>
-						<th>Subject</th>
-						<th>Description</th>
-						<th>Action</th>
-					</tr>
-
-					<tr>
-						<td><form:input path="subject" /></td>
-						<td><form:input path="description" /></td>
-						<td><input type="submit" value="Submit" /></td>
-					</tr>
-
-				</table>
-			</form:form>
+			<h2>Sorry, there is no user like ${login}</h2>
+			<h3><a href="/MyToDoList/login">Go back to logon page</a></h3>
+			
 		</div>
-		</div>
-		   <jsp:include page="_footer.jsp"></jsp:include>
+	</div>
+	<jsp:include page="_footer.jsp"></jsp:include>
 </body>
 </html>

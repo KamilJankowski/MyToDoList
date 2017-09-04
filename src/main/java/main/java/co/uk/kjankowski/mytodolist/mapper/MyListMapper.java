@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 public class MyListMapper implements RowMapper<MyList> {
 	
 	public static final String BASE_SQL = "select id, subject, description from mylist";
-	
+	@Override
 	public MyList mapRow(ResultSet rs, int rowNum) throws SQLException{
 		Integer id = rs.getInt("id");
 		String subject = rs.getString("subject");

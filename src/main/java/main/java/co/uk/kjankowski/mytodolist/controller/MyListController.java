@@ -20,6 +20,7 @@ public class MyListController {
 	
 	@Autowired
 	private MyListDAO mylistDAO;
+	public static int meditBtnTask;
 	
 	@RequestMapping(value= {"/"}, method = RequestMethod.GET)
 	public String mylistPage(Model model) {
@@ -41,6 +42,19 @@ public class MyListController {
 		mylistDAO.deleteTask(deleteBtnTask);
 		
 		return "delTask";
+				
+	}
+	
+	@RequestMapping( params="editBtnTask")
+	public String editTask(@RequestParam("editBtnTask")  Integer editBtnTask, Model model) {
+		
+				
+		System.out.println("wynik "+ editBtnTask);
+		
+		List<MyList> list = mylistDAO.selectTask(editBtnTask);
+		model.addAttribute("mylist", list);
+		
+		return "editTask";
 				
 	}
 	

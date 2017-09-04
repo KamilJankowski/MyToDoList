@@ -47,6 +47,25 @@ public class MyListDAO extends JdbcDaoSupport {
 		this.getJdbcTemplate().update(sql, params);
 	}
 	
+	public List<MyList> selectTask(Integer id) {
+		String sql = "select id, subject, description from mylist where id = ?";
+		
+		Object[] params = new Object[] {id};
+		MyListMapper mapper = new MyListMapper();
+		
+		List<MyList> list = this.getJdbcTemplate().query(sql, params, mapper);
+		
+		return list;
+	}
+	
+	public void updateTask(Integer task_id, String subject, String description) {
+		String sql = "update mylist set subject=?, description=? where id=?";
+		
+		Object[] params = new Object[] { subject, description, task_id };
+		this.getJdbcTemplate().update(sql, params);
+		
+		}
+	
 	
 	
 				

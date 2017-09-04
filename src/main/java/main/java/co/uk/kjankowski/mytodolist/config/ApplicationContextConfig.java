@@ -23,6 +23,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 public class ApplicationContextConfig {
 
+	// The Environment class serves as the property holder
+	// and stores all the properties loaded by the @PropertySource
 	@Autowired
 	private Environment env;
 
@@ -36,29 +38,31 @@ public class ApplicationContextConfig {
 		return viewResolver;
 	}
 
-	   @Bean(name = "dataSource")
-	   public DataSource getDataSource() {
-	       DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	 
-	       // See: datasouce-cfg.properties
-	       dataSource.setDriverClassName(env.getProperty("ds.database-driver"));
-	       dataSource.setUrl(env.getProperty("ds.url"));
-	       dataSource.setUsername(env.getProperty("ds.username"));
-	       dataSource.setPassword(env.getProperty("ds.password"));
-	 
-	       System.out.println("## getDataSource: " + dataSource);
-	 
-	       return dataSource;
-	   }
+	@Bean(name = "dataSource")
+	public DataSource getDataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-	   @Bean(name = "transactionManager")
-	   public DataSourceTransactionManager getTransactionManager() {
-	       DataSourceTransactionManager txManager = new DataSourceTransactionManager();
-	 
-	       DataSource dataSource = this.getDataSource();
-	       txManager.setDataSource(dataSource);
-	 
-	       return txManager;
-	   }
+		// See: datasouce-cfg.properties
+		dataSource.setDriverClassName(env.getProperty("ds.database-driver"));
+		dataSource.setUrl(env.getProperty("ds.url"));
+		dataSource.setUsername(env.getProperty("ds.username"));
+		dataSource.setPassword(env.getProperty("ds.password"));
+
+		System.out.println("## getDataSource: " + dataSource);
+
+		return dataSource;
+	}
+
+	@Bean(name = "transactionManager")
+	public DataSourceTransactionManager getTransactionManager() {
+		DataSourceTransactionManager txManager = new DataSourceTransactionManager();
+
+		DataSource dataSource = this.getDataSource();
+		txManager.setDataSource(dataSource);
+
+		return txManager;
+	}
+	
+	
 
 }

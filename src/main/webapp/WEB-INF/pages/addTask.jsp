@@ -128,6 +128,7 @@ footer p {
 				</tr>
 
 			</table>
+			<h3><a href="/MyToDoList/">Go Back</a></h3>
 		</div>
 	</div>
 	<jsp:include page="_footer.jsp"></jsp:include>

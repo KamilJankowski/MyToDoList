@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -111,29 +111,29 @@ footer p {
 </style>
 </head>
 <body>
-	<jsp:include page="_header.jsp"></jsp:include>
-	<jsp:include page="_menu.jsp"></jsp:include>
+
+	<jsp:include page="_header1.jsp"></jsp:include>
+	
 	<div class="wrapper">
 		<div align="center">
-			<h2>Add task to my list</h2>
-			<form:form method="POST" action="/MyToDoList/addTask">
+			<h2>Login to My To Do List</h2>
+			<form method="POST" action="/MyToDoList/loginresult">
 				<table border="1">
-					<tr>
-						<th>Subject</th>
-						<th>Description</th>
-						<th>Action</th>
-					</tr>
 
 					<tr>
-						<td><form:input path="subject" /></td>
-						<td><form:input path="description" /></td>
-						<td><input type="submit" value="Submit" /></td>
+						<td><label>login</label></td>
+						<td><input type="text" name="login" /></td>
 					</tr>
-
+					<tr>
+						<td><label>password</label></td>
+						<td><input type="password" name="password" /></td>
+					</tr>
 				</table>
-			</form:form>
+
+				<button type="submit" name="submitLogin" value="submit" >Login</button>
+			</form>
 		</div>
-		</div>
-		   <jsp:include page="_footer.jsp"></jsp:include>
+	</div>
+	<jsp:include page="_footer.jsp"></jsp:include>
 </body>
 </html>

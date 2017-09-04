@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-  <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
- <!DOCTYPE html>
- <html>
-  <head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>My to do list</title>
 <style>
 @import
 	url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Oxygen:300,400,700')
@@ -20,7 +24,7 @@ body {
 	font-family: 'Karla';
 	padding: 0;
 	margin: 0;
-	color:yelllow;
+	color: yelllow;
 }
 
 .wrapper img {
@@ -31,9 +35,10 @@ body {
 	border-collapse: collapse;
 }
 
-.wrapper table tr:hover{
+.wrapper table tr:hover {
 	background-color: #ff3333;
 }
+
 .wrapper table tr th {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -41,10 +46,10 @@ body {
 	margin: 0;
 }
 
-.wrapper table tr td{
+.wrapper table tr td {
 	padding-left: 10px;
 	padding-right: 10px;
-	font-size:14px;
+	font-size: 14px;
 }
 
 header {
@@ -66,6 +71,7 @@ header h1 {
 	color: #f8f8f8;
 	font-family: 'Oxygen';
 	font-style: italic;
+	width: 300px;
 }
 
 nav {
@@ -106,43 +112,84 @@ footer p {
 	text-align: center;
 }
 
+.dropdown {
+	position: absolute;
+	display: inline-block;
+	right: 100px;
+	color: white;
+	text-decoration: none;
+	top: 10px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: rgba(249, 249, 249, .3);
+	text-decoration: none;
+	min-width: 120px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+
+.dropdown-content button {
+	background: none !important;
+	color: inherit;
+	border: none;
+	padding: 0 !important;
+	font: inherit;
+	/*border is optional*/
+	border-bottom: 1px solid #444;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
 </style>
-      <meta charset="UTF-8">
-      <title>My  to do list</title>
 
-      
 
-  </head>
-  <body>
-  	<jsp:include page="_header.jsp"></jsp:include>
+</head>
+<body>
+
+	<jsp:include page="_header.jsp"></jsp:include>
 	<jsp:include page="_menu.jsp"></jsp:include>
 	<div class="wrapper">
-      <div align="center">
-          <h1>My list to do</h1>
-         <form:form action="/MyToDoList/delTask" method="post" modelAttribute="listForm">
-          <table border="1">
-              <tr>
-                <th>ID</th>
-                <th>Subject</th>
-                <th>Description</th>
-                <th>Action</th>
-              </tr>
-              <c:forEach var="l" items="${mylist}" varStatus="status">
-              <tr>
-                 
-                  <td>${l.id}</td>
-                  <td>${l.subject}</td>
-                  <td>${l.description}</td>  
-                  <td><button type="submit" name="deleteBtnTask" value="${l.id}">Delete</button></td>                          
-              </tr>
-              </c:forEach>                
-          </table>
-          
-          </form:form>
-         
-          
-      </div>
-      </div>
-      <jsp:include page="_footer.jsp"></jsp:include>
-  </body>
+		<div align="center">
+			<h1>My list to do</h1>
+
+			<table border="1">
+				<tr>
+					<th>ID</th>
+					<th>Subject</th>
+					<th>Description</th>
+					<th>Action Delete</th>
+					<th>Action Edit</th>
+				</tr>
+				<c:forEach var="l" items="${mylist}" varStatus="status">
+					<tr>
+
+						<td>${l.id}</td>
+						<td>${l.subject}</td>
+						<td>${l.description}</td>
+						<td><form:form action="/MyToDoList/delTask" method="post"
+								modelAttribute="listForm">
+								<button type="submit" name="deleteBtnTask" value="${l.id}">Delete</button>
+							</form:form></td>
+						<td><form:form action="/MyToDoList/editTask" method="post"
+								modelAttribute="listForm">
+								<button type="submit" name="editBtnTask" value="${l.id}">Edit</button>
+							</form:form></td>
+					</tr>
+				</c:forEach>
+			</table>
+
+
+
+
+		</div>
+	</div>
+	<jsp:include page="_footer.jsp"></jsp:include>
+</body>
 </html>

@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [03/Sep/2017:23:41:49 +0100] "GET /MyToDoList/ HTTP/1.1" 200 4461 http-bio-8080-exec-1 8178
+0:0:0:0:0:0:0:1 - - [03/Sep/2017:23:41:50 +0100] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [03/Sep/2017:23:41:58 +0100] "GET /MyToDoList/ HTTP/1.1" 200 4461 http-bio-8080-exec-5 34
+0:0:0:0:0:0:0:1 - - [03/Sep/2017:23:42:01 +0100] "GET /MyToDoList/task HTTP/1.1" 200 2574 http-bio-8080-exec-6 353
+0:0:0:0:0:0:0:1 - - [03/Sep/2017:23:42:03 +0100] "POST /MyToDoList/login HTTP/1.1" 400 1278 http-bio-8080-exec-7 14
